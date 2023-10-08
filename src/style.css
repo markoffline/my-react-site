@@ -1,0 +1,151 @@
+body {
+    text-align: center;
+
+    margin: 0;
+    padding: 0;
+}
+
+.auto_max {
+    width: 100%;
+    max-width: 60em;
+
+    margin: 0 auto;
+}
+
+.portrait {
+    width: calc(2em * 15);
+    height: calc(3em * 15);
+
+    object-fit: cover;
+
+    border-radius: 5em;
+}
+
+.lil_portrait {
+    width: calc(2em * 3);
+    height: calc(3em * 3);
+
+    object-fit: cover;
+
+    border-radius: 1em;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    margin-left: auto;
+    margin-right: 0;
+
+    float: right;
+}
+
+.first_port {
+    transform: translateY(5em);
+}
+
+.port_info {
+    text-align: left;
+
+    transform: translateY(10em);
+}
+
+.port_info .infoinfo {
+    background-color: black;
+
+    width: 10em;
+
+    margin-right: 5em;
+
+    color: white;
+
+    padding: 2em;
+    border-radius: 2.5em;
+
+    float: right;
+}
+
+.mug {
+    transform: translateY(35em);
+}
+
+
+.no_margin p, h1 {
+    margin: 0;
+    padding: 0;
+}
+
+.texas {
+    width: 10em;
+
+    object-fit: contain;
+
+    transform: translateY(45em);
+
+    border-radius: 1em;
+}
+
+.okla {
+    width: 7em;
+
+    object-fit: contain;
+
+    transform: translateX(-1em) translateY(42em);
+    margin: 0;
+
+    border-radius: 1em;
+}
+
+.straw {
+    width: 25em;
+    aspect-ratio: 1;
+    object-fit: contain;
+    transform:translateX(15.5em) translateY(28em);
+
+}
+
+.album {
+    width: 10em;
+    border-radius: 1em;
+    position: absolute;
+}
+
+
+.illmatic {
+    transform: translateY(11em);
+    z-index: 3;
+}
+
+.ksg {
+    transform: translateY(22em);
+    z-index: 2;
+}
+
+.utopia {
+    transform: translateY(33em);
+    z-index: 1;
+}
+
+.krayon {
+    position: absolute;
+    top: 7em;
+    left: 0;
+    width: 100%;
+    height: 40em;
+    object-fit: contain;
+
+    opacity: 0;
+    will-change: opacity;
+}
+
+.krayon.visible {
+  opacity: 1;
+}
+
+.im_from {
+    opacity: 0;
+    transform: translateY(65vh);
+
+    will-change: opacity, transform;
+}
