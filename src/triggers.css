@@ -1,5 +1,5 @@
 .triggers {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
 
@@ -13,6 +13,13 @@
     position: absolute;
     top: 0;
     left: 0;
+
+    width: 100vw;
+    height: 1em;
+}
+
+.triggers div.outline {
+    background-color: red;
 }
 
 #krayon_logo_trigger {
@@ -21,4 +28,8 @@
 
 #header_two_trigger {
     top: 55%;
+}
+
+#header_two_flip_one {
+    top: 150%;
 }

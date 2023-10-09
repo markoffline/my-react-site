@@ -35,7 +35,6 @@ export default () => {
       duration: "20%",
       offset: 0
     })
-    .addIndicators()
     .addTo(controller)
     .on('progress', (e) => {
       let logo = document.querySelector('.krayon');
@@ -48,13 +47,25 @@ export default () => {
       duration: "10%",
       offset: 0,
     })
-    .addIndicators()
     .addTo(controller)
     .on('progress', (e)=>{
       let secondHeader = document.querySelector('.im_from');
       secondHeader.style.opacity = e.progress;
       secondHeader.style.transform = `translateY(calc(65vh + ${3 * (1-e.progress)}em))`
 
+    })
+    // Flip header to reveal the city im from
+    new ScrollMagic.Scene({
+      triggerElement: "#header_two_flip_one",
+      duration: "10%",
+      offset: 0,
+    })
+    .addTo(controller)
+    .on('progress', (e)=>{
+      let flip = document.querySelector('.im_from_info');
+      let skyline = document.querySelector('.fortworth');
+      flip.style.transform = `rotateX(${e.progress * 180}deg)`
+      skyline.style.opacity = `${e.progress}`
     })
   }, []);
 
@@ -63,8 +74,9 @@ export default () => {
   return (
   <>
     <div className="triggers" id="triggers">
-      <div id="header_two_trigger"></div>
-      <div id="krayon_logo_trigger"></div>
+      <div id="header_two_trigger" class="outline"></div>
+      <div id="krayon_logo_trigger"class="outline"></div>
+      <div id="header_two_flip_one"></div>
     </div>
 
     <Parallax pages={4} id="parallax">
@@ -111,8 +123,22 @@ export default () => {
 
       <ParallaxLayer sticky={{start: 0, end: 2}}>
         <div class="auto_max no_margin im_from">
-          <p>So Uhh</p>
-          <h1 class="header_two">Where am I from?</h1>
+          <div class="im_from_info">
+            <div class="front">
+              <p>So Uhh</p>
+              <h1 class="header_two">Where am I from?</h1>
+            </div>
+            <div class="back">
+              <h1 class="header_two">Fort Worth</h1>
+              <p>Texas</p>
+            </div>
+          </div>
+        </div>
+      </ParallaxLayer>
+
+      <ParallaxLayer sticky={{start: 1.1, end: 2}} speed={1} style={{ zIndex:-1 }}>
+        <div class="auto_max fortworth">
+          <img src={FortWorth} alt="Fort Worth Skyline" class=""/>
         </div>
       </ParallaxLayer>
     </Parallax>
