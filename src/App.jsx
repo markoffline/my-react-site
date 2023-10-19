@@ -5,6 +5,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 import FirstHeadShot from './images/nigga.jpeg'
 import Jail from './images/jail.jpeg'
 import FortWorth from './images/fort_worth.jpeg'
+import Galveston from './images/galveston.jpeg'
 import Texas from './images/Flag_of_Texas.jpeg'
 import Oklahoma from './images/Flag_of_Oklahoma.jpeg'
 import StrawHat from './images/Straw-Hat-Logo.png'
@@ -52,7 +53,6 @@ export default () => {
       let secondHeader = document.querySelector('.im_from');
       secondHeader.style.opacity = e.progress;
       secondHeader.style.transform = `translateY(calc(65vh + ${3 * (1-e.progress)}em))`
-
     })
     // Flip header to reveal the city im from
     new ScrollMagic.Scene({
@@ -63,9 +63,28 @@ export default () => {
     .addTo(controller)
     .on('progress', (e)=>{
       let flip = document.querySelector('.im_from_info');
-      let skyline = document.querySelector('.fortworth');
+      document.querySelector('.im_from_info p').innerHTML = "So uhh";
+      document.querySelector('.im_from_info h1').innerHTML = "Where am I from?";
+
+      let skyline = document.querySelector('.skylines');
       flip.style.transform = `rotateX(${e.progress * 180}deg)`
       skyline.style.opacity = `${e.progress}`
+    })
+
+    new ScrollMagic.Scene({
+      triggerElement: "#galveston_flip",
+      duration: "10%",
+      offset: 0
+    })
+    .addTo(controller)
+    .on('progress', (e)=> {
+      let skyline = document.querySelector('.skylines');
+      skyline.style.transform = `rotateY(${e.progress * 180}deg)`
+
+      let flip = document.querySelector('.im_from_info');
+      document.querySelector('.im_from_info p').innerHTML = "Later I moved to...";
+      document.querySelector('.im_from_info h1').innerHTML = "Galveston (2011-2018)";
+      flip.style.transform = `rotateX(${180 - (e.progress * 180)}deg)`
     })
   }, []);
 
@@ -77,6 +96,7 @@ export default () => {
       <div id="header_two_trigger" class="outline"></div>
       <div id="krayon_logo_trigger"class="outline"></div>
       <div id="header_two_flip_one"></div>
+      <div id="galveston_flip"></div>
     </div>
 
     <Parallax pages={4} id="parallax">
@@ -129,7 +149,7 @@ export default () => {
               <h1 class="header_two">Where am I from?</h1>
             </div>
             <div class="back">
-              <h1 class="header_two">Fort Worth</h1>
+              <h1 class="header_two">Fort Worth (2006-2011)</h1>
               <p>Texas</p>
             </div>
           </div>
@@ -137,8 +157,11 @@ export default () => {
       </ParallaxLayer>
 
       <ParallaxLayer sticky={{start: 1.1, end: 2}} speed={1} style={{ zIndex:-1 }}>
-        <div class="auto_max fortworth">
-          <img src={FortWorth} alt="Fort Worth Skyline" class=""/>
+        <div class="auto_max img_from">
+          <div class="skylines">
+            <img src={FortWorth} alt="Fort Worth Skyline" class="fw"/>
+            <img src={Galveston} alt="Galveston Skyline" class="ga"/>
+          </div>
         </div>
       </ParallaxLayer>
     </Parallax>
