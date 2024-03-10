@@ -14,6 +14,9 @@
     top: 0;
     left: 0;
 
+    will-change: top;
+
+
     width: 100vw;
     height: 1em;
 }
@@ -31,9 +34,17 @@
 }
 
 #header_two_flip_one {
-    top: 150%;
+    top: 125%;
 }
 
 #galveston_flip {
-    top: 205%;
+    top: 200%;
+}
+
+#what_now_reveal {
+    top: 290%;
+}
+
+#what_now_sticky {
+    top: 375%;
 }
